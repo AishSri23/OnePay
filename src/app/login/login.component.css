@@ -1,0 +1,18 @@
+.logincard
+{
+    max-width: 40%;  
+    margin-left:50%;
+    margin-top:10%
+}
+.example-form {
+    min-width: 20%;
+    max-width: 40%;
+    width: 100%;
+  }
+  
+  .table-full-width {
+    width: 100%;
+  }
+  .error {
+    color: red;
+}

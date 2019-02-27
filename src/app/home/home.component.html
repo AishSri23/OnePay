@@ -1,0 +1,25 @@
+
+<nav mat-tab-nav-bar backgroundColor="accent" class="overviewcard" >
+  
+        <a mat-tab-link class="bold"
+        *ngFor="let link of navLinks || async"
+        [routerLink]="link.path"
+        routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+       {{link.label}}
+     </a>
+     
+     
+      
+  
+  </nav>
+  
+  <section  class="main-container" > 
+
+    <div class="welcome">
+Welcome {{loggedUser}}
+    </div>
+    <router-outlet></router-outlet>
+  </section>
+ 
+  

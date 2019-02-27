@@ -1,0 +1,24 @@
+
+<h2 mat-dialog-title>Accept Terms & Conditions </h2>
+<mat-divider></mat-divider>
+<div mat-dialog-content class="mT50">
+  <form [formGroup]="termsForm">
+  <span>Folowing are the terms and condition for One Pay </span>
+  <mat-card-content class="mT50">
+    <mat-checkbox formControlName="checked" required>Accept</mat-checkbox>
+    <div>
+<div class="mT15" *ngIf="termsForm.controls['checked'].errors && !ischecked">
+    <mat-error  *ngIf="termsForm.controls['checked'].errors.required">
+  Accept is required</mat-error>
+</div>
+    </div>
+ 
+  </mat-card-content>
+</form>
+  <mat-card-actions class="mL50">
+          
+    <button mat-raised-button color="primary" (click)="onContinueClick()">Continue</button>
+    <button mat-raised-button color="primary" (click)="onClick()">Go Back</button>
+  </mat-card-actions>
+
+</div>

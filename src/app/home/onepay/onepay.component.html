@@ -1,0 +1,65 @@
+<mat-card class="overviewcard">
+    <mat-card-header>
+        <mat-card-title>One Pay Overview</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <form [formGroup]='onepayForm'>
+    <mat-card-content>
+        
+        <div formArrayName="details">
+            <table class="w100perc" >
+        <!--  <tr *ngFor="let details of accountdetails">
+              <td class="bold w40perc">
+               {{ details.accountname }} <br/>{{details.accountnumber }}
+              </td>
+              <td class="pL20 w30perc">
+                <label *ngIf="!modify"> {{ details.accountamount | currency:'INR':false}}</label> 
+                  <input matInput *ngIf="modify"  > 
+                </td>
+                <td class="pL20 w30perc">
+                    <button mat-raised-button color="primary" (click)="onModify()" >{{buttonname}}</button>
+                  </td>
+            </tr> -->
+            
+           
+           <tr *ngFor="let detail of  accountlist; let $i=index" [formGroupName]="$i">
+                <td class="bold w40perc">
+
+               {{detail.accountname}}                   
+               
+                  <br/>
+                  {{detail.accountnumber}}
+                </td>
+                <td class="pL20 w30perc">
+                  <label *ngIf="!modify"> {{detail.accountamount| currency:'INR-':false}} </label>
+                  
+                  <input matInput *ngIf="modify" formControlName="accountamount">
+         
+                  </td>
+                  
+                  <td class="pL20 w30perc">
+                      <button mat-raised-button color="primary" (click)="onModify()" >{{buttonname}}</button>
+                    </td>
+              </tr>
+        
+      
+      </table>
+    </div>
+  
+      </mat-card-content>
+      
+    <mat-card-content >
+      
+
+<div>
+  <label class="bold">Total Amount Due </label><span class="pL20"> {{amountdue | currency:'INR':false}}</span>
+</div>
+
+
+<div class="pT20 pL40perc">
+    <button  mat-raised-button color="primary">Pay  Amount</button>
+</div>
+
+    </mat-card-content>
+</form>
+      </mat-card>

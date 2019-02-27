@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+.overviewcard
+{
+    max-width: 50%;
+    margin-top:100px;
+    margin-left:15%
+}
+.bold{
+    font-weight: bold;
+}
+.w100perc
+{
+    width: 100%;
+}
+.pL20
+{
+    padding-left:20px
+}
+.pT20
+{
+    padding-top:20px
+}
+.pL40perc
+{
+    padding-left:40%
+}
+.title
+{
+margin-left: 35%;
+    /* padding-top: 20%; */
+    text-align: center;
+    /* width: 20%; */
+    font-style: oblique;
+    font-size: -webkit-xxx-large;
+}

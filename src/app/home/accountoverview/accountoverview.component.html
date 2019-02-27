@@ -1,0 +1,41 @@
+<mat-card class="overviewcard">
+    <mat-card-header>
+        <mat-card-title>Account Overview</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <table class="w100perc">
+        <tr>
+        <td class="bold">
+          Saving Account : {{savingnum }}
+        </td>
+        <td class="pL20">
+            {{ savingamt | currency:'INR':false}}
+          </td>
+      </tr>
+      <tr>
+        <td class="bold">
+          Current Account : {{ currentnum }}
+        </td>
+        <td class="pL20">
+            {{ currentamt | currency:'INR':false }}
+          </td>
+      </tr>
+      </table>
+      </mat-card-content>
+    <mat-card-content >
+      <div *ngIf="isRegistered; else registerBlock">
+<div>
+  <h4>One Pay</h4>
+</div>
+<div>
+  Total Amount Due <span class="pL20"> {{amountdue | currency:'INR':false}}</span>
+</div>
+</div>
+<ng-template #registerBlock>
+<div>
+    <button  mat-raised-button color="primary" (click)="openDialog()">Register for One Pay </button>
+</div>
+</ng-template>
+    </mat-card-content>
+      </mat-card>

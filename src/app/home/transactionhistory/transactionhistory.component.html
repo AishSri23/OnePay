@@ -1,0 +1,25 @@
+<mat-card class="overviewcard">
+  <mat-card-header>
+      <mat-card-title>Transaction History</mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <form [formGroup]='transactionForm'>
+  <mat-card-content>
+      <div formArrayName="status">
+    <table class="w100perc">
+       <tr *ngFor="let detail of  statuslist; let $i=index" [formGroupName]="$i">
+      <td class="bold">
+        {{detail.accountname}} <br/>{{detail.accountnumber }}
+      </td>
+      <td class="pL20">
+        {{detail.accountstatus}}
+        </td>
+    </tr>
+    
+    </table>
+  </div>
+    </mat-card-content>
+  </form>
+    </mat-card>
+    
+
