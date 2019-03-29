@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import {CustomMaterialModule} from './material.module';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -25,7 +26,8 @@ import { AuthGuard } from './shared/auth.guard';
     CustomMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
    
   ],
   providers: [AuthGuard],  

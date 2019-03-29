@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TabLinks} from '../tab.service';
 import {Router} from '@angular/router';
-import { OnepayComponent } from './onepay/onepay.component';
-import { TransactionhistoryComponent } from './transactionhistory/transactionhistory.component';
+
 
 @Component({
   selector: 'app-home',
@@ -12,23 +11,17 @@ import { TransactionhistoryComponent } from './transactionhistory/transactionhis
 })
 export class HomeComponent implements OnInit {
   navLinks=[];
-  loggedUser="Test";
+  loggedUser=" ";
   constructor(private router:Router,public tablinks:TabLinks)
   {
-    /* var y=this.router.config.find(y=>y.path=='home');
-    console.log(y);
-    y.loadChildren()
-    .push(
-      { path: 'onepay', component:OnepayComponent },
-      { path: 'transaction', component:TransactionhistoryComponent }
-     
-    ); */
+    
     
   }
   
   ngOnInit() {
+    this.loggedUser = sessionStorage.getItem('userName');
     this.navLinks=this.tablinks.getLinks();
-    console.log(this.navLinks);
+    
   }
 
 }

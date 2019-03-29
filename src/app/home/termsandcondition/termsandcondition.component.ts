@@ -35,10 +35,10 @@ export class TermsandconditionComponent implements OnInit {
     }
     else
     {
-     // debugger;
+     
       this.ischecked=true;
      
-      //console.log(this.tablinks);
+      
     
     this.dialogRef.close("Continue");
     

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AccountoverviewComponent } from './accountoverview.component';
 
-describe('AccountoverviewComponent', () => {
+/* describe('AccountoverviewComponent', () => {
   let component: AccountoverviewComponent;
   let fixture: ComponentFixture<AccountoverviewComponent>;
 
@@ -23,3 +23,4 @@ describe('AccountoverviewComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+ */

@@ -1,41 +1,51 @@
 <mat-card class="overviewcard">
     <mat-card-header>
-        <mat-card-title>Account Overview</mat-card-title>
+      <mat-card-title>Account  Overview</mat-card-title>
     </mat-card-header>
-    <mat-divider></mat-divider>
-    <mat-card-content>
-      <table class="w100perc">
-        <tr>
-        <td class="bold">
-          Saving Account : {{savingnum }}
-        </td>
-        <td class="pL20">
-            {{ savingamt | currency:'INR':false}}
+   <!--  <mat-divider></mat-divider> -->
+    <form *ngIf="accountdetails; else loading" [formGroup]='accountoverviewForm'>
+      <mat-card-content>
+          <label class="error" *ngIf="isError">{{errorMessage}}</label>
+          <mat-divider></mat-divider>
+          <mat-divider></mat-divider>
+          <div formArrayName="account">
+        <table class="w100perc">
+           <tr *ngFor="let detail of  accountlist; let $i=index" [formGroupName]="$i">
+          <td class="bold">
+            {{detail.accountname}} <br/>{{detail.accountnumber }}
           </td>
-      </tr>
-      <tr>
-        <td class="bold">
-          Current Account : {{ currentnum }}
-        </td>
-        <td class="pL20">
-            {{ currentamt | currency:'INR':false }}
-          </td>
-      </tr>
-      </table>
-      </mat-card-content>
+          <td class="pL20">
+            {{detail.accountbalance | currency:'INR':"symbol"}}
+            </td>
+        </tr>
+        
+        </table>
+      </div>
+        </mat-card-content>
+     
+    
     <mat-card-content >
       <div *ngIf="isRegistered; else registerBlock">
 <div>
   <h4>One Pay</h4>
 </div>
 <div>
-  Total Amount Due <span class="pL20"> {{amountdue | currency:'INR':false}}</span>
+  Total Amount Due <span class="pL20"> {{amountdue | currency:'INR':"symbol"}}</span>
 </div>
 </div>
 <ng-template #registerBlock>
 <div>
-    <button  mat-raised-button color="primary" (click)="openDialog()">Register for One Pay </button>
+    <button  mat-raised-button color="primary"  (click)="openDialog()">Register for One Pay </button>
 </div>
 </ng-template>
     </mat-card-content>
+  </form>
+  <ng-template #loading>
+    loading...
+  </ng-template>
+  
+  
+  
       </mat-card>
+
+     

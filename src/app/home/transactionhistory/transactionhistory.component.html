@@ -3,16 +3,23 @@
       <mat-card-title>Transaction History</mat-card-title>
   </mat-card-header>
   <mat-divider></mat-divider>
-  <form [formGroup]='transactionForm'>
+  <form *ngIf="transactiondetails; else loading" [formGroup]='TransactionDetailsForm'>
+      
   <mat-card-content>
-      <div formArrayName="status">
+      <div formArrayName="details">
     <table class="w100perc">
-       <tr *ngFor="let detail of  statuslist; let $i=index" [formGroupName]="$i">
+      <thead>
+        <th align="left">Transaction ID</th>
+        <th align="left">Account Number</th>
+        <th align="left">Transaction Status</th>
+      </thead>
+       <tr *ngFor="let detail of transactionList; let $i=index" [formGroupName]="$i">
       <td class="bold">
-        {{detail.accountname}} <br/>{{detail.accountnumber }}
+        {{detail.transactionid}}</td> 
+        <td class="bold">{{detail.accountnumber }} 
       </td>
-      <td class="pL20">
-        {{detail.accountstatus}}
+      <td class="pL20 pT5px">
+        {{detail.TransactionStatus}}
         </td>
     </tr>
     

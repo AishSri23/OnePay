@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import {CustomMaterialModule} from '../material.module';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -35,7 +36,8 @@ import {HomeRoutingModule} from './home-routing.module';
     CustomMaterialModule,
     FormsModule,
     ReactiveFormsModule,    
-    HomeRoutingModule
+    HomeRoutingModule,
+    HttpClientModule
   ],
   entryComponents: [
     TermsandconditionComponent,

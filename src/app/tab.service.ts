@@ -16,7 +16,7 @@ export class TabLinks
 
 
        updateNavAfterAuth({path,text}): void {
-         //  debugger;
+         
           var pathlength=this.navLinks.filter(x=>x.path==path).length;
           if(pathlength==0)
           {

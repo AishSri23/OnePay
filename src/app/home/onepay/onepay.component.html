@@ -3,26 +3,25 @@
         <mat-card-title>One Pay Overview</mat-card-title>
     </mat-card-header>
     <mat-divider></mat-divider>
-    <form [formGroup]='onepayForm'>
+    <label class="error" *ngIf="isError">{{errorMessage}}</label>
+    <mat-divider></mat-divider>
+    <form *ngIf="accountdetails; else loading" [formGroup]='onepayForm'>
+      
+            <mat-form-field class="pL50perc">
+                    <mat-select placeholder="Account Type" formControlName="account" required>
+                      
+                      <mat-option *ngFor="let type of baseaccountdetails" [value]="type.accountId">
+                        {{type.accountId}}
+                      </mat-option>
+                    </mat-select>
+                    </mat-form-field>
     <mat-card-content>
         
         <div formArrayName="details">
-            <table class="w100perc" >
-        <!--  <tr *ngFor="let details of accountdetails">
-              <td class="bold w40perc">
-               {{ details.accountname }} <br/>{{details.accountnumber }}
-              </td>
-              <td class="pL20 w30perc">
-                <label *ngIf="!modify"> {{ details.accountamount | currency:'INR':false}}</label> 
-                  <input matInput *ngIf="modify"  > 
-                </td>
-                <td class="pL20 w30perc">
-                    <button mat-raised-button color="primary" (click)="onModify()" >{{buttonname}}</button>
-                  </td>
-            </tr> -->
+            <table class="w100perc" >      
             
            
-           <tr *ngFor="let detail of  accountlist; let $i=index" [formGroupName]="$i">
+           <tr *ngFor="let detail of  accountlist;trackBy:detail?.accountnumber; let $i=index" [formGroupName]="$i">
                 <td class="bold w40perc">
 
                {{detail.accountname}}                   
@@ -31,14 +30,15 @@
                   {{detail.accountnumber}}
                 </td>
                 <td class="pL20 w30perc">
-                  <label *ngIf="!modify"> {{detail.accountamount| currency:'INR-':false}} </label>
+                  <label *ngIf="$i!=modify"> {{detail.accountamount| currency:'INR-':false}} </label>
                   
-                  <input matInput *ngIf="modify" formControlName="accountamount">
+                  <input  *ngIf="$i==modify"  formControlName="accountamount">
          
                   </td>
                   
                   <td class="pL20 w30perc">
-                      <button mat-raised-button color="primary" (click)="onModify()" >{{buttonname}}</button>
+                      <button mat-raised-button color="primary" *ngIf="$i!=modify" (click)="onModify($i)" >Modify</button>
+                      <button mat-raised-button color="primary" *ngIf="$i==modify" (click)="onDone($i)" >Done</button>
                     </td>
               </tr>
         
@@ -52,14 +52,18 @@
       
 
 <div>
-  <label class="bold">Total Amount Due </label><span class="pL20"> {{amountdue | currency:'INR':false}}</span>
+  <label class="bold">Total Amount Due </label>
+  <span class="pL25perc"> {{amountdue | currency:'INR':false}}</span>
 </div>
 
 
 <div class="pT20 pL40perc">
-    <button  mat-raised-button color="primary">Pay  Amount</button>
+    <button  mat-raised-button color="primary" (click)="payAmount()">Pay  Amount</button>
 </div>
 
     </mat-card-content>
 </form>
+<ng-template #loading>
+  loading...
+</ng-template>
       </mat-card>

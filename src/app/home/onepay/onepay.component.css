@@ -7,3 +7,15 @@
 {
     width:40%
 }
+.pL50perc
+{
+    padding-left: 50%
+}
+.pL25perc
+{
+    padding-left: 25%
+}
+
+.error {
+    color: red;
+}

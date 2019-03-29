@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TermsandconditionComponent } from './termsandcondition.component';
 
-describe('TermsandconditionComponent', () => {
+/* describe('TermsandconditionComponent', () => {
   let component: TermsandconditionComponent;
   let fixture: ComponentFixture<TermsandconditionComponent>;
 
@@ -22,4 +22,4 @@ describe('TermsandconditionComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+}); */
